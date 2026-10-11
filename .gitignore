@@ -1,0 +1,13 @@
+__pycache__/
+.venv/
+
+# large inputs; crawl logs, manifests, robots.txt copies and HTML samples stay as evidence
+raw/**/docs.jsonl
+raw/*.gz
+raw/*.jsonl
+raw/wiki/
+
+corpus/*
+!corpus/.gitkeep
+data/*.txt
+artifacts/*.bin

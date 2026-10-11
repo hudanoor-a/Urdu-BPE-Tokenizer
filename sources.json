@@ -1,0 +1,18 @@
+[
+  {"name": "jang", "path": "raw/scraped/jang/docs.jsonl", "fmt": "jsonl", "genre": "news", "mine": true,
+   "url": "https://jang.com.pk", "collected": "TODO",
+   "licence": "Copyright Daily Jang, all rights reserved (site footer); robots.txt obeyed; course-internal use, not redistributed"},
+  {"name": "independent_urdu", "path": "raw/scraped/independent/docs.jsonl", "fmt": "jsonl", "genre": "news", "mine": true,
+   "url": "https://www.independenturdu.com", "collected": "TODO",
+   "licence": "TODO: publisher terms of use; robots.txt obeyed; course-internal use, not redistributed"},
+  {"name": "express_live", "path": "raw/scraped/express_live/docs.jsonl", "fmt": "jsonl", "genre": "news", "mine": true,
+   "url": "https://www.express.pk/live-blog", "collected": "TODO",
+   "licence": "TODO: publisher terms of use; robots.txt obeyed; course-internal use, not redistributed"},
+  {"name": "ufal_urdu_mono", "path": "raw/urdu-plain-text-corpus.gz", "fmt": "chunk", "chunk": 50,
+   "genre": "mixed (news, religion, blogs, literature, science, education)", "mine": false,
+   "url": "https://lindat.mff.cuni.cz/repository/xmlui/handle/11858/00-097C-0000-0023-65A9-5", "collected": "2026-10-10",
+   "licence": "CC BY-NC-SA 3.0 (Jawaid, Kamran and Bojar, 2014)"},
+  {"name": "urdu_wikipedia", "path": "raw/urwiki.jsonl", "fmt": "jsonl", "genre": "encyclopedia", "mine": false,
+   "url": "https://huggingface.co/datasets/wikimedia/wikipedia (20231101.ur)", "collected": "2026-10-11",
+   "licence": "CC BY-SA 3.0 and GFDL"}
+]
