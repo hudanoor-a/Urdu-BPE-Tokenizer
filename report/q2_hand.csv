@@ -1,0 +1,9 @@
+﻿input,form,words,chars,bytes,ours_tokens,ours_tpw,gpt2_tokens,gpt2_tpw,o200k_base_tokens,o200k_base_tpw
+news,normalised,43,199,356,45,1.047,256,5.953,57,1.326
+poetry,normalised,18,82,147,19,1.056,110,6.111,31,1.722
+urdu_english,normalised,24,119,162,37,1.542,84,3.5,26,1.083
+roman_urdu,normalised,19,91,91,45,2.368,36,1.895,26,1.368
+numbers_dates,normalised,24,126,190,39,1.625,121,5.042,51,2.125
+diacritics,normalised,14,66,119,16,1.143,76,5.429,25,1.786
+diacritics (raw),raw,14,86,159,71,5.071,102,7.286,47,3.357
+names,normalised,14,91,169,19,1.357,105,7.5,35,2.5
