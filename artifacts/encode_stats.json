@@ -1,0 +1,16 @@
+{
+  "train": {
+    "tokens": 162137642,
+    "bytes": 1084701660,
+    "bytes_per_token": 6.69,
+    "seconds": 459.9,
+    "distinct_words_cached": 1039308
+  },
+  "val": {
+    "tokens": 1623470,
+    "bytes": 10900487,
+    "bytes_per_token": 6.714,
+    "seconds": 4.0,
+    "distinct_words_cached": 1045352
+  }
+}

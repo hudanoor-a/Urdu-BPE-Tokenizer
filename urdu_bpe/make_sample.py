@@ -15,8 +15,20 @@ from pathlib import Path
 
 from .pretokenize import EOT_TOKEN
 
-SEPARATOR = f"{EOT_TOKEN}\n".encode("utf-8")
+SEPARATORS = tuple(f"{EOT_TOKEN}{newline}".encode("utf-8") for newline in ("\n", "\r\n"))
+MIN_SEPARATOR_LENGTH = min(map(len, SEPARATORS))
 CHUNK = 1 << 20
+
+
+def find_separator(data: bytes, start: int = 0) -> tuple[int, int] | None:
+    """Find the next end-of-document marker followed by either common newline."""
+    matches = ((data.find(separator, start), separator) for separator in SEPARATORS)
+    matches = ((index, separator) for index, separator in matches if index >= 0)
+    match = min(matches, default=None, key=lambda item: item[0])
+    if match is None:
+        return None
+    index, separator = match
+    return index, index + len(separator)
 
 
 def take_sample(path: Path, min_bytes: int, seed: int) -> tuple[bytes, int]:
@@ -31,13 +43,13 @@ def take_sample(path: Path, min_bytes: int, seed: int) -> tuple[bytes, int]:
         while chunk := f.read(CHUNK):
             buf += chunk
             if start < 0:
-                i = buf.find(SEPARATOR)
-                if i < 0:
+                separator = find_separator(buf)
+                if separator is None:
                     continue
-                start = i + len(SEPARATOR)
-            end = buf.find(SEPARATOR, start + min_bytes - len(SEPARATOR))
-            if end >= 0:
-                return buf[start : end + len(SEPARATOR)], offset
+                start = separator[1]
+            end = find_separator(buf, start + min_bytes - MIN_SEPARATOR_LENGTH)
+            if end is not None:
+                return buf[start : end[1]], offset
     raise SystemExit("reached the end of the file before collecting enough documents")
 
 
@@ -53,7 +65,7 @@ def main() -> None:
     sample.decode("utf-8")
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_bytes(sample)
-    print(f"wrote {args.out}: {len(sample):,} bytes, {sample.count(SEPARATOR)} documents, from offset {offset:,}")
+    print(f"wrote {args.out}: {len(sample):,} bytes, {sample.count(EOT_TOKEN.encode('utf-8'))} documents, from offset {offset:,}")
 
 
 if __name__ == "__main__":

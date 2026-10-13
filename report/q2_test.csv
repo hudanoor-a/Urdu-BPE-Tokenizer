@@ -1,0 +1,2 @@
+﻿input,words,bytes,docs,ours_tokens,gpt2_tokens,o200k_base_tokens,ours_tpw,ours_tpw_median_doc,ours_bytes_per_token,gpt2_tpw,gpt2_tpw_median_doc,gpt2_bytes_per_token,o200k_base_tpw,o200k_base_tpw_median_doc,o200k_base_bytes_per_token
+test.txt,1410766,11082910,3093,1650248,8030777,2179435,1.17,1.187,6.716,5.692,5.883,1.38,1.545,1.653,5.085
